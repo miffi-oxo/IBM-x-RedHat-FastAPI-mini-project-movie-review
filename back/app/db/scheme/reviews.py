@@ -16,5 +16,9 @@ class ReviewInDB(ReviewBase):
     mov_id:int
     rev_create:datetime
 
+    class Config:
+        from_attributes=True
+
+
 class ReviewRead(ReviewInDB):
     pass

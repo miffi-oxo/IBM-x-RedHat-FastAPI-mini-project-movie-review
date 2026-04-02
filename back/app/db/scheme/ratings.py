@@ -13,6 +13,10 @@ class RatingInDB(RatingBase):
     rat_id:int
     user_id:int
     mov_id:int
+    
+    class Config:
+        from_attributes=True
+
 
 class RatingRead(RatingInDB):
     pass
