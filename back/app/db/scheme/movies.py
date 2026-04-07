@@ -5,7 +5,7 @@ from typing import Annotated
 
 class MovieBase(BaseModel):
     mov_name:str
-    mov_discript:str
+    mov_descript:str
     mov_release:datetime
     genre:str
 

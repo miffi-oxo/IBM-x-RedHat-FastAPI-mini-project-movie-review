@@ -13,8 +13,8 @@ class Rating(Base):
 
     rat_id:Mapped[int]=mapped_column(primary_key=True)
     user_id:Mapped[int]=mapped_column(ForeignKey("users.user_id"), nullable=False)
-    mov_id:Mapped[int]=mapped_column(("movies.mov_id"),nullable=False)
-    star: Mapped[Optional[int]]=mapped_column(Integer(5),nullable=True)
+    mov_id:Mapped[int]=mapped_column(ForeignKey("movies.mov_id"),nullable=False)
+    star: Mapped[Optional[int]]=mapped_column(Integer,nullable=True)
 
     user: Mapped["User"] = relationship("User", back_populates="ratings")
     movie: Mapped["Movie"] = relationship("Movie", back_populates="ratings")

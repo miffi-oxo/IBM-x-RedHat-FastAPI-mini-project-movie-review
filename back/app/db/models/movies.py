@@ -8,7 +8,7 @@ if TYPE_CHECKING:
     from .ratings import Rating
 
 class Movie(Base):
-    __tablename__="moives"
+    __tablename__="movies"
 
     mov_id:Mapped[int]=mapped_column(primary_key=True)
     mov_name:Mapped[str]=mapped_column(String(50),nullable=False)
