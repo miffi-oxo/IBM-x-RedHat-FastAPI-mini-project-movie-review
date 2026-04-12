@@ -1,6 +1,12 @@
 from pydantic_settings import BaseSettings
 from pydantic import Field
 from datetime import timedelta
+from pathlib import Path
+
+import os
+print("ENV TEST:", os.getenv("DB_USER"))
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 class Settings(BaseSettings):
     db_user:str=Field(..., alias="DB_USER")
@@ -15,7 +21,7 @@ class Settings(BaseSettings):
     refresh_token_expire_seconds:int=Field(604800, alias="REFRESH_TOKEN_EXPIRE")
 
     class Config:
-        env_file=".env"
+        env_file = str(BASE_DIR / ".env")
         case_sensitive=True
         extra="allow"
         populate_by_name=True

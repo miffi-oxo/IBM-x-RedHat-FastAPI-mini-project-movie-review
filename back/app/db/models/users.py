@@ -14,7 +14,7 @@ class User(Base):
     user_id:Mapped[int]=mapped_column(primary_key=True)
     user_name:Mapped[str]=mapped_column(String(50))
     email:Mapped[str]=mapped_column(String(100), unique=True, nullable=False)
-    password:Mapped[str]=mapped_column(String(50), nullable=False)
+    password: Mapped[str] = mapped_column(String(255), nullable=False)
     ref_token:Mapped[str]=mapped_column(String(255), nullable=True)
     user_create:Mapped[datetime]=mapped_column(TIMESTAMP,server_default=func.now(), nullable=False)
 
